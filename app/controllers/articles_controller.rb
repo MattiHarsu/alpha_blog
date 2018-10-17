@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   
+  before_action  :set_article, only: [:edit, :update, :show, :destroy]
+  
   def index
     ## @articles = Article.all
     ## Pagination feature included
@@ -11,7 +13,7 @@ class ArticlesController < ApplicationController
   end
   
   def edit
-    @article = Article.find(params[:id])
+    ##@article = Article.find(params[:id])
   end
   
   def create
@@ -26,7 +28,7 @@ class ArticlesController < ApplicationController
   end
   
   def update
-    @article = Article.find(params[:id])
+    ## @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:success] = "Article was successfully updated"
       redirect_to article_path(@article)
@@ -37,11 +39,11 @@ class ArticlesController < ApplicationController
   end
   
   def show 
-    @article = Article.find(params[:id])
+    ## @article = Article.find(params[:id])
   end
   
   def destroy
-    @article = Article.find(params[:id])
+    ## @article = Article.find(params[:id])
     @article.destroy
     flash[:danger] = "Article was succesfully deleted"
     redirect_to articles_path
